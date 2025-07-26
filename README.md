@@ -3,7 +3,7 @@
 ## Software Installation
 
 ### C#
-We are using .NET SDK version: `9.0.303`. You can visit `https://dotnet.microsoft.com/en-us/download/dotnet/9.0` to install it.
+We are using .NET SDK version: `9.0.303`. You can visit https://dotnet.microsoft.com/en-us/download/dotnet/9.0 to install it.
 
 Once installed, in the terminal use this command to verify that the correct SDK was installed:
 ```
