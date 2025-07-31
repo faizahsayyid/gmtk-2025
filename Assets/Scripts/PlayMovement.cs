@@ -65,7 +65,8 @@ public class PlayMovement : MonoBehaviour
         // Perform jump if both timers valid
         if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
         {
-            rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);           
             jumpBufferCounter = 0f;
             coyoteTimeCounter = 0f;
         }
