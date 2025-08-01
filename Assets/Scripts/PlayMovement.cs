@@ -17,10 +17,12 @@ public class PlayMovement : MonoBehaviour
 
 
     [Header("Ground Check Settings")]
-    public Transform groundCheck;            
-    public LayerMask groundLayer; 
+    public Transform groundCheck;
+    public LayerMask groundLayer;
     public Vector2 groundCheckBoxSize = new Vector2(0.5f, 0.1f);
 
+    [Header("Animation Settings")]
+    public Animator animator;
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
@@ -66,7 +68,8 @@ public class PlayMovement : MonoBehaviour
         if (jumpBufferCounter > 0 && coyoteTimeCounter > 0)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);           
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Jump);          
             jumpBufferCounter = 0f;
             coyoteTimeCounter = 0f;
         }
@@ -85,13 +88,32 @@ public class PlayMovement : MonoBehaviour
 
         rb.AddForce(new Vector2(movement, 0f));
 
+        // Add walk animation
+        if (moveInput.x != 0)
+        {
+            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Walk);
+            // Flip the player based on movement direction
+            if (moveInput.x > 0)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+            else if (moveInput.x < 0)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+        }
+        else
+        {
+            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Idle);
+        }
+
         // Apply horizontal drag when airborne and no input
         if (!IsGrounded() && Mathf.Approximately(moveInput.x, 0f))
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x * horizontalDrag, rb.linearVelocity.y);
         }
     }
-    
+
     private bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckBoxSize, 0f, groundLayer);
