@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &626522446136065264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5534468047339901475}
+  m_Layer: 6
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5534468047339901475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626522446136065264}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.817, y: 0.171, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3094386257727034104}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4023212397495630295
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,6 +158,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5534468047339901475}
   - {fileID: 8161790213603979826}
   - {fileID: 4034912643331562282}
   m_Father: {fileID: 0}
@@ -261,6 +293,10 @@ MonoBehaviour:
     m_Bits: 128
   groundCheckBoxSize: {x: 0.5, y: 0.1}
   animator: {fileID: 4442010053924112773}
+  bulletPrefab: {fileID: 6655665818093484738, guid: 94822912209cd4b4e8de169d24ac000c, type: 3}
+  firePoint: {fileID: 5534468047339901475}
+  fireRate: 0.5
+  castDelay: 0.2
 --- !u!61 &945072594019431285
 BoxCollider2D:
   m_ObjectHideFlags: 0
