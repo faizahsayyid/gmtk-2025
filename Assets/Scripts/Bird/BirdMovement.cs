@@ -13,7 +13,7 @@ public class BirdMovement : MonoBehaviour
     public float stopDistance = 5f;
     [Header("Attack Settings")]
     public float attackRange = 10f;
-    public float fireRate = 0.5f;
+    public float fireRate = 1.5f;
     public float castDelay = 0.2f;
     public Transform firePoint;
     public GameObject attackPrefab;

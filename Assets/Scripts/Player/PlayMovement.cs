@@ -129,15 +129,12 @@ public class PlayMovement : MonoBehaviour
 
     private void Shoot()
     {
-        Debug.Log("1)" + (Time.time >= nextFireTime));
-        Debug.Log("2)" + (bulletPrefab != null));
-        Debug.Log("3)" + (firePoint != null));
         if (Time.time >= nextFireTime && bulletPrefab != null && firePoint != null)
         {
             Debug.Log("Shooting");
             nextFireTime = Time.time + fireRate;
 
-            // animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
+            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
 
             StartCoroutine(FireBulletAfterDelay());
         }
