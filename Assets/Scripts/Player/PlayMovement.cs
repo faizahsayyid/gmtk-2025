@@ -147,15 +147,12 @@ public class PlayMovement : MonoBehaviour
     {
         Debug.Log("Firing bullet after delay");
         yield return new WaitForSeconds(castDelay);
-        
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        
-        Vector2 shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-        
-        Bullet bulletScript = bullet.GetComponent<Bullet>();
-        if (bulletScript != null)
-        {
-            bulletScript.Initialize(shootDirection);
-        }
+
+        SpawnManager.InstantiateAndNotify(
+            bulletPrefab,
+            firePoint.position,
+            firePoint.rotation,
+            transform.localScale.x <= 0
+        );
     }
 }

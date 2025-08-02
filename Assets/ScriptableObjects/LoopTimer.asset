@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6b19352a1dff466cbcfcf33eb650f92, type: 3}
   m_Name: LoopTimer
   m_EditorClassIdentifier: 
-  duration: 60
+  duration: 5
+  isRunning: 0
+  debug: 1

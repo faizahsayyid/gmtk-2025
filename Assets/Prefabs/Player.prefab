@@ -107,9 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1102f21888a44fa2a7b9e8f1f9ac737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  looperLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  looperLayer: 8
   loopTimer: {fileID: 11400000, guid: b8bd7f9e5f23c4db69185600590e3432, type: 2}
   looperRecording: {fileID: 11400000, guid: b608518ab29ef40c3bd77ddf4dd9eb71, type: 2}
 --- !u!114 &806956681392733581
@@ -124,6 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0df6d950a544e886c99e63d871139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loopTimer: {fileID: 11400000, guid: b8bd7f9e5f23c4db69185600590e3432, type: 2}
+  looperRecording: {fileID: 11400000, guid: b608518ab29ef40c3bd77ddf4dd9eb71, type: 2}
 --- !u!1 &6775260792203284109
 GameObject:
   m_ObjectHideFlags: 0
