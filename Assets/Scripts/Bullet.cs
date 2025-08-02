@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float damage = 1f;
 
     private Rigidbody2D rb;
-    private Vector2 direction;
+    // private Vector2 direction;
 
     private void Awake()
     {
@@ -18,17 +18,14 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, lifetime);
-    }
-
-    public void Initialize(Vector2 shootDirection)
-    {
-        direction = shootDirection.normalized;
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         rb.linearVelocity = direction * speed;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "TempPlatform") {
+        if (col.name == "TempPlatform")
+        {
             Destroy(gameObject);
         }
     }
