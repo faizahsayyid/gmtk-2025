@@ -280,8 +280,8 @@ Transform:
   m_GameObject: {fileID: 249691454}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011, y: -4.55, z: 0}
-  m_LocalScale: {x: 19.886913, y: 1, z: 1}
+  m_LocalPosition: {x: 4.0607, y: -5.6121, z: 0}
+  m_LocalScale: {x: 57.778755, y: 3.1243, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -519,6 +519,7 @@ GameObject:
   - component: {fileID: 1341400031}
   - component: {fileID: 1341400030}
   - component: {fileID: 1341400033}
+  - component: {fileID: 1341400034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -644,6 +645,19 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &1341400034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1341400029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dae21c0ea44634eb38e03c51b28c3b50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 1, z: 0}
 --- !u!1 &1362472354
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,11 +973,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7055155676674014541, guid: c47b91e51e66e40028d63447f73a9bbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.33
+      value: 30.83
       objectReference: {fileID: 0}
     - target: {fileID: 7055155676674014541, guid: c47b91e51e66e40028d63447f73a9bbc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.56
+      value: -3.49
       objectReference: {fileID: 0}
     - target: {fileID: 7055155676674014541, guid: c47b91e51e66e40028d63447f73a9bbc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1020,7 +1034,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7823667288599709778, guid: 4b5b073a853cf468da24407e42c17f88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.53
+      value: -21.38
       objectReference: {fileID: 0}
     - target: {fileID: 7823667288599709778, guid: 4b5b073a853cf468da24407e42c17f88, type: 3}
       propertyPath: m_LocalPosition.y
