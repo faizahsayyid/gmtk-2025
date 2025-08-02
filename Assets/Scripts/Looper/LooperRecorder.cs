@@ -6,33 +6,53 @@ public class LooperRecorder : MonoBehaviour
     public LoopTimer loopTimer;
     public LooperRecording looperRecording;
 
+    private PlayerInputActions inputActions;
+
+    void Awake()
+    {
+        inputActions = new PlayerInputActions();
+        HandleStopLooper();
+    }
     void OnEnable()
     {
+        // Enable the input actions
+        inputActions.Enable();
         // Subscribe to event
         SpawnEvents.OnObjectInstantiated += HandleSpawn;
-        loopTimer.OnTimerStopped += HandleTimerStopped;
+        inputActions.Player.StopLooper.performed += ctx => HandleStopLooper();;
     }
 
     void OnDisable()
     {
+        // Disable the input actions
+        inputActions.Disable();
         // Unsubscribe from event
         SpawnEvents.OnObjectInstantiated -= HandleSpawn;
-        loopTimer.OnTimerStopped -= HandleTimerStopped;
-        // Reset the recording
-        looperRecording.ResetRecording();
+        // Stop the looper
+        HandleStopLooper();
     }
 
     void HandleSpawn(GameObject spawnedObject, Vector3 position, Quaternion rotation, bool flip)
     {
+        if (!loopTimer.isRunning)
+        {
+            loopTimer.StartTimer();
+        }
         if (loopTimer.isRunning && looperLayer == spawnedObject.layer)
         {
-            int currentTime = loopTimer.GetCurrentTimeSeconds();
-            looperRecording.Record(currentTime, spawnedObject, position, rotation, flip);
+            int timeStamp = loopTimer.GetCurrentTimeSeconds();
+
+            looperRecording.Record(timeStamp, spawnedObject, position, rotation, flip);
         }
     }
     
-    void HandleTimerStopped()
+    void HandleStopLooper()
     {
+        if (loopTimer.isRunning)
+        {
+            loopTimer.StopTimer();
+        }
+        // Reset the recording
         looperRecording.ResetRecording();
     }
 }

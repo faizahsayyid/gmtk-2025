@@ -1,28 +1,36 @@
 using UnityEngine;
 using System;
 
-
 [CreateAssetMenu(fileName = "LoopTimer", menuName = "Scriptable Objects/LoopTimer")]
 public class LoopTimer : ScriptableObject
 {
     public float duration = 60f; // Duration of the timer in seconds
-    private float timeRemaining;
-    public bool isRunning;
+    private float timeRemaining = 0f;
+    public bool isRunning = false;
     public event Action OnTimerStopped;
     public event Action<int> onTimerTick;
 
     private int secondsOnLastTick;
+    public bool debug = false;
 
     public void StartTimer()
     {
         timeRemaining = duration;
         isRunning = true;
+        if (debug)
+        {
+            Debug.Log("LoopTimer started");
+        }
     }
 
     public void StopTimer()
     {
         isRunning = false;
         OnTimerStopped?.Invoke();
+        if (debug)
+        {
+            Debug.Log("LoopTimer stopped");
+        }
     }
 
     public void UpdateTimer(float deltaTime)
@@ -41,6 +49,10 @@ public class LoopTimer : ScriptableObject
             // Invoke the timer tick event
             onTimerTick?.Invoke(secondsOnLastTick);
         }
+        if (debug)
+        {
+            Debug.Log($"LoopTimer: {GetCurrentTimeSeconds()} seconds remaining.");
+        }
     }
 
     public float GetCurrentTime()
@@ -48,7 +60,7 @@ public class LoopTimer : ScriptableObject
         return duration - timeRemaining;
     }
 
-    public int GetCurrentTimeSeconds() 
+    public int GetCurrentTimeSeconds()
     {
         return (int)Mathf.Floor(GetCurrentTime());
     }

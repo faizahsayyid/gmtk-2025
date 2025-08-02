@@ -24,10 +24,4 @@ public static class SpawnManager
 
         return instantiatedGameObject;
     }
-
-    public static void Destroy(GameObject gameObject)
-    {
-        SpawnEvents.OnObjectDestroyed?.Invoke(gameObject);
-        Object.Destroy(gameObject);
-    }
 }

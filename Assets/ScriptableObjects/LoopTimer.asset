@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: LoopTimer
   m_EditorClassIdentifier: 
   duration: 5
-  isRunning: 1
+  isRunning: 0
+  debug: 1
