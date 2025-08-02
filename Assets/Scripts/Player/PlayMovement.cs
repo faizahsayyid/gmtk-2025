@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayMovement : MonoBehaviour
 {
@@ -24,11 +25,17 @@ public class PlayMovement : MonoBehaviour
     [Header("Animation Settings")]
     public Animator animator;
 
+    [Header("Shooting Settings")]
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float fireRate = 0.5f;
+    public float castDelay = 0.2f;
+
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private float coyoteTimeCounter;
     private float jumpBufferCounter;
-
+    private float nextFireTime;
 
     private PlayerInputActions inputActions;
 
@@ -41,6 +48,7 @@ public class PlayMovement : MonoBehaviour
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
         inputActions.Player.Jump.performed += ctx => jumpBufferCounter = jumpBufferTime;
+        inputActions.Player.Attack.performed += ctx => Shoot();
     }
 
     private void OnEnable() => inputActions.Enable();
@@ -117,5 +125,32 @@ public class PlayMovement : MonoBehaviour
     private bool IsGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, groundCheckBoxSize, 0f, groundLayer);
+    }
+
+    private void Shoot()
+    {
+        if (Time.time >= nextFireTime && bulletPrefab != null && firePoint != null)
+        {
+            nextFireTime = Time.time + fireRate;
+            
+            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
+            
+            StartCoroutine(FireBulletAfterDelay());
+        }
+    }
+
+    private IEnumerator FireBulletAfterDelay()
+    {
+        yield return new WaitForSeconds(castDelay);
+        
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        
+        Vector2 shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+        if (bulletScript != null)
+        {
+            bulletScript.Initialize(shootDirection);
+        }
     }
 }
