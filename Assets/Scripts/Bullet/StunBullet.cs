@@ -3,15 +3,14 @@ using System.Collections;
 
 public class StunBullet : MonoBehaviour
 {
-    [Header("Movement")]
+    [Header("Bullet Settings")]
     public float speed = 8f;
     public float lifetime = 3f;
+    public float damage = 5f;
 
     [Header("Stun Effect")]
-    public float damage = 5f;
     public float stunDuration = 2f;
 
-    private Vector2 direction;
     private Rigidbody2D rb;
 
     private void Awake()
