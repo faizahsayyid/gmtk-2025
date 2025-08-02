@@ -112,7 +112,8 @@ public class SpellCaster : MonoBehaviour
             GameObject projectile = SpawnManager.Instantiate(
                 currentSpell.spellPrefab, 
                 firePoint.position, 
-                firePoint.rotation
+                firePoint.rotation,
+                false
             );
             
             // Determine shoot direction based on player facing

@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public float damage = 1f;
 
     private Rigidbody2D rb;
-    private Vector2 direction;
+    // private Vector2 direction;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
 
     public void Initialize(Vector2 shootDirection)
     {
-        direction = shootDirection.normalized;
+        Vector2 direction = shootDirection.normalized;
         rb.linearVelocity = direction * speed;
         
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -31,6 +31,14 @@ public class Bullet : MonoBehaviour
         if (spriteRenderer != null)
         {
             spriteRenderer.flipX = shootDirection.x < 0; // Flip when going left
+        }
+    }
+    
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.name == "TempPlatform")
+        {
+            Destroy(gameObject);
         }
     }
 }
