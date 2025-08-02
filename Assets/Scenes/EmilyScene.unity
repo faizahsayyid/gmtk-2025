@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 248716527}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,6 +259,10 @@ MonoBehaviour:
     m_Bits: 128
   groundCheckBoxSize: {x: 0.5, y: 0.1}
   animator: {fileID: 248716523}
+  bulletPrefab: {fileID: 0}
+  firePoint: {fileID: 0}
+  fireRate: 0.5
+  castDelay: 0.2
 --- !u!50 &248716526
 Rigidbody2D:
   serializedVersion: 5
@@ -748,6 +752,7 @@ GameObject:
   - component: {fileID: 1627047867}
   - component: {fileID: 1627047866}
   - component: {fileID: 1627047868}
+  - component: {fileID: 1627047869}
   m_Layer: 0
   m_Name: Bird1
   m_TagString: Untagged
@@ -847,6 +852,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1627047869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627047865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 517ab152f8e444da4badafab15570093, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  moveSpeed: 3
+  stopDistance: 5
 --- !u!1 &2129435840
 GameObject:
   m_ObjectHideFlags: 0
