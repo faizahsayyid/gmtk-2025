@@ -1,17 +1,38 @@
 using UnityEngine;
+using System.Collections;
 
 public class BirdMovement : MonoBehaviour
 {
-    public Transform player;
-    public float moveSpeed = 3f;
-    public float stopDistance = 5f;
 
+    [Header("General Settings")]
+    public Animator animator;
+
+    [Header("Player Tracking Settings")]
+    public Transform player;
+    [Header("Movement Settings")] public float moveSpeed = 3f;
+    public float stopDistance = 5f;
+    [Header("Attack Settings")]
+    public float attackRange = 10f;
+    public float fireRate = 0.5f;
+    public float castDelay = 0.2f;
+    public Transform firePoint;
+    public GameObject attackPrefab;
+
+    [Header("Health Settings")]
+    public int maxHealth = 3;
+    public int currentHealth;
+    
+    
     private SpriteRenderer spriteRenderer;
+    private float nextFireTime;
+
 
     void Start()
     {
+        currentHealth = maxHealth;
         player = GameObject.FindWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     void Update()
@@ -21,18 +42,59 @@ public class BirdMovement : MonoBehaviour
         Vector3 direction = player.position - transform.position;
         float distance = direction.magnitude;
 
+        
+
         if (distance > stopDistance)
         {
             transform.position += direction.normalized * moveSpeed * Time.deltaTime;
         }
+        if (distance < attackRange)
+        {
+            EnemyShoot();
+
+        }
 
         if (direction.x < 0)
         {
-            spriteRenderer.flipX = false; 
+            spriteRenderer.flipX = false;
         }
         else
         {
             spriteRenderer.flipX = true;
         }
     }
+    
+    private void EnemyShoot()
+    {
+        Debug.Log("1)" + (Time.time >= nextFireTime));
+        Debug.Log("2)" + (attackPrefab != null));
+        Debug.Log("3)" + (firePoint != null));
+        if (Time.time >= nextFireTime && attackPrefab != null && firePoint != null)
+        {
+            Debug.Log("Shooting");
+            nextFireTime = Time.time + fireRate;
+
+            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
+
+            StartCoroutine(FireBulletAfterDelayEnemy());
+        }
+    }
+
+    private IEnumerator FireBulletAfterDelayEnemy()
+{
+    yield return new WaitForSeconds(castDelay);
+
+    Vector2 shootDirection = (player.position - firePoint.position).normalized;
+    float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+
+    GameObject bullet = Instantiate(attackPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
+
+    Bullet bulletScript = bullet.GetComponent<Bullet>();
+    if (bulletScript != null)
+    {
+        bulletScript.Initialize(shootDirection);
+    }
+}
+
+    
 }
