@@ -21,16 +21,11 @@ public class StunBullet : MonoBehaviour
 
     private void Start()
     {
-
-    }
-
-    public void Initialize()
-    {
         Destroy(gameObject, lifetime);
         Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         rb.linearVelocity = direction * speed;
     }
-    
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.name == "TempPlatform")

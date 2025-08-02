@@ -113,31 +113,11 @@ public class SpellCaster : MonoBehaviour
 
     private void FireSpellProjectile()
     {
-        if (currentSpell.spellPrefab != null && firePoint != null)
-        {
-            // Determine shoot direction based on player facing
-            Vector2 shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-
-            GameObject projectile = SpawnManager.Instantiate(
+            GameObject projectile = SpawnManager.InstantiateAndNotify(
                 currentSpell.spellPrefab,
                 firePoint.position,
                 firePoint.rotation,
-                shootDirection.x < 0
+                transform.localScale.x <= 0
             );
-
-
-            // Initialize projectile (works for both Bullet and StunBullet)
-            var bullet = projectile.GetComponent<Bullet>();
-            if (bullet != null)
-            {
-                bullet.Initialize();
-            }
-
-            var stunBullet = projectile.GetComponent<StunBullet>();
-            if (stunBullet != null)
-            {
-                stunBullet.Initialize();
-            }
-        }
     }
 }
