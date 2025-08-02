@@ -9,6 +9,7 @@ public class LoopTimer : ScriptableObject
     public bool isRunning = false;
     public event Action OnTimerStopped;
     public event Action<int> onTimerTick;
+    public bool isFirstCycleComplete = false;
 
     private int secondsOnLastTick;
     public bool debug = false;
@@ -26,6 +27,7 @@ public class LoopTimer : ScriptableObject
     public void StopTimer()
     {
         isRunning = false;
+        isFirstCycleComplete = false; // Reset the first cycle flag
         OnTimerStopped?.Invoke();
         if (debug)
         {
@@ -41,6 +43,14 @@ public class LoopTimer : ScriptableObject
         if (timeRemaining <= 0f)
         {
             timeRemaining = duration; // Reset the timer to loop
+            if (!isFirstCycleComplete)
+            {
+                if (debug)
+                {
+                    Debug.Log("LoopTimer first cycle complete");
+                }
+                isFirstCycleComplete = true;
+            }
         }
         // Trigger the tick event if its at the end of a second
         if (secondsOnLastTick != GetCurrentTimeSeconds())
@@ -48,10 +58,11 @@ public class LoopTimer : ScriptableObject
             secondsOnLastTick = GetCurrentTimeSeconds();
             // Invoke the timer tick event
             onTimerTick?.Invoke(secondsOnLastTick);
-        }
-        if (debug)
-        {
-            Debug.Log($"LoopTimer: {GetCurrentTimeSeconds()} seconds remaining.");
+
+            if (debug)
+            {
+                Debug.Log($"LoopTimer: {GetCurrentTimeSeconds()} seconds remaining.");
+            }
         }
     }
 

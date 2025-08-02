@@ -11,7 +11,6 @@ public class LooperRecorder : MonoBehaviour
     void Awake()
     {
         inputActions = new PlayerInputActions();
-        HandleStopLooper();
     }
     void OnEnable()
     {
@@ -29,6 +28,11 @@ public class LooperRecorder : MonoBehaviour
         // Unsubscribe from event
         SpawnEvents.OnObjectInstantiated -= HandleSpawn;
         // Stop the looper
+        HandleStopLooper();
+    }
+
+    private void Start()
+    {
         HandleStopLooper();
     }
 

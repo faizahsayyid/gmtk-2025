@@ -23,6 +23,9 @@ public class LooperSpawner : MonoBehaviour
 
     void HandleTimerTick(int seconds)
     {
+
+        if (!loopTimer.isFirstCycleComplete) return;
+        
         List<LoopRecordingLog> logs = looperRecording.GetLogsAtTime(seconds);
 
         for (int i = 0; i < logs.Count; i++)
