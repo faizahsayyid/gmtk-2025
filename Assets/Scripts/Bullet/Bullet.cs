@@ -20,18 +20,11 @@ public class Bullet : MonoBehaviour
     
     }
 
-    public void Initialize(Vector2 shootDirection)
+    public void Initialize()
     {
-        Vector2 direction = shootDirection.normalized;
+        Destroy(gameObject, lifetime);
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
         rb.linearVelocity = direction * speed;
-        
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-
-        // Flip sprite based on direction
-        if (spriteRenderer != null)
-        {
-            spriteRenderer.flipX = shootDirection.x < 0; // Flip when going left
-        }
     }
     
     private void OnTriggerEnter2D(Collider2D col)

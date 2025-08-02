@@ -26,7 +26,6 @@ public class PlayMovement : MonoBehaviour
     public Animator animator;
 
     [Header("Shooting Settings")]
-    public GameObject bulletPrefab;
     public Transform firePoint;
     public float fireRate = 0.5f;
     public float castDelay = 0.2f;

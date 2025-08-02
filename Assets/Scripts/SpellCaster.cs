@@ -8,22 +8,22 @@ public class SpellCaster : MonoBehaviour
     public SpellInventory spellInventory;
     public Transform firePoint;
     public float castDelay = 0.2f;
-    
+
     [Header("Current Spell")]
     private int currentSpellIndex = 0;
-    
+
     private SpellData currentSpell;
-    
+
     // Events for UI updates
     public event Action<SpellData> OnSpellSelected;
     private Animator animator;
     private bool isCasting = false;
-    
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
     }
-    
+
     private void Start()
     {
         if (spellInventory != null && spellInventory.GetAllSpells().Count > 0)
@@ -31,7 +31,7 @@ public class SpellCaster : MonoBehaviour
             SelectSpell(0);
         }
     }
-    
+
     private void SelectSpell(int index)
     {
         var spells = spellInventory.GetAllSpells();
@@ -44,7 +44,7 @@ public class SpellCaster : MonoBehaviour
         }
     }
 
-    
+
     private void SelectSpellByName(string spellName)
     {
         var spells = spellInventory.GetAllSpells();
@@ -57,24 +57,24 @@ public class SpellCaster : MonoBehaviour
             }
         }
     }
-    
+
     public void SelectAttackSpell()
     {
         SelectSpellByName("Attack");
     }
-    
+
     public void SelectStunSpell()
     {
         SelectSpellByName("Stun");
     }
-    
+
     private bool CanCastCurrentSpell()
     {
-        return currentSpell != null && 
-               spellInventory.CanCastSpell(currentSpell) && 
+        return currentSpell != null &&
+               spellInventory.CanCastSpell(currentSpell) &&
                !isCasting;
     }
-    
+
     public void CastCurrentSpell()
     {
         if (CanCastCurrentSpell())
@@ -87,55 +87,56 @@ public class SpellCaster : MonoBehaviour
                      $"Cooldown remaining: {spellInventory.GetSpellCooldownRemaining(currentSpell):F1}s");
         }
     }
-    
+
     private IEnumerator CastSpellCoroutine()
     {
         isCasting = true;
-        
+
         // Play cast animation
         if (animator != null)
         {
             animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
         }
-        
+
         // Wait for cast delay
         yield return new WaitForSeconds(castDelay);
-        
+
         // Cast the spell
         if (spellInventory.CastSpell(currentSpell))
         {
             FireSpellProjectile();
             Debug.Log($"Cast {currentSpell.spellName}!");
         }
-        
+
         isCasting = false;
     }
-    
+
     private void FireSpellProjectile()
     {
         if (currentSpell.spellPrefab != null && firePoint != null)
         {
-            GameObject projectile = SpawnManager.Instantiate(
-                currentSpell.spellPrefab, 
-                firePoint.position, 
-                firePoint.rotation,
-                false
-            );
-            
             // Determine shoot direction based on player facing
             Vector2 shootDirection = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-            
+
+            GameObject projectile = SpawnManager.Instantiate(
+                currentSpell.spellPrefab,
+                firePoint.position,
+                firePoint.rotation,
+                shootDirection.x < 0
+            );
+
+
             // Initialize projectile (works for both Bullet and StunBullet)
             var bullet = projectile.GetComponent<Bullet>();
             if (bullet != null)
             {
-                bullet.Initialize(shootDirection);
+                bullet.Initialize();
             }
-            
+
             var stunBullet = projectile.GetComponent<StunBullet>();
             if (stunBullet != null)
             {
-                stunBullet.Initialize(shootDirection);
+                stunBullet.Initialize();
             }
         }
     }

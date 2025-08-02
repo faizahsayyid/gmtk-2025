@@ -6,35 +6,36 @@ public class StunBullet : MonoBehaviour
     [Header("Movement")]
     public float speed = 8f;
     public float lifetime = 3f;
-    
+
     [Header("Stun Effect")]
     public float damage = 5f;
     public float stunDuration = 2f;
-    
+
     private Vector2 direction;
     private Rigidbody2D rb;
-    
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
-    
+
     private void Start()
     {
-        
+
+    }
+
+    public void Initialize()
+    {
+        Destroy(gameObject, lifetime);
+        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+        rb.linearVelocity = direction * speed;
     }
     
-    public void Initialize(Vector2 shootDirection)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        direction = shootDirection.normalized;
-        rb.linearVelocity = direction * speed;
-
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
-
-        // Flip sprite based on direction
-        if (spriteRenderer != null)
+        if (col.name == "TempPlatform")
         {
-            spriteRenderer.flipX = shootDirection.x < 0; // Flip when going left
+            Destroy(gameObject);
         }
     }
 }
