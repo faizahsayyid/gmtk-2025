@@ -10,23 +10,17 @@ public sealed class SceneDirections
 { 
     public const string Right = "right";
     public const string Left = "left";
-    public const string Up = "up";
-    public const string Down = "down";
 }
 
 class NextScene
 {
     public string rightScene;
     public string leftScene;
-    public string upScene;
-    public string downScene;
 
     public NextScene(string right = null, string left = null, string up = null, string down = null)
     {
         rightScene = right;
         leftScene = left;
-        upScene = up;
-        downScene = down;
     }
 }
 public class SceneConfig
@@ -51,10 +45,6 @@ public class SceneConfig
                     return nextScene.rightScene;
                 case SceneDirections.Left:
                     return nextScene.leftScene;
-                case SceneDirections.Up:
-                    return nextScene.upScene;
-                case SceneDirections.Down:
-                    return nextScene.downScene;
                 default:
                     return null;
             }

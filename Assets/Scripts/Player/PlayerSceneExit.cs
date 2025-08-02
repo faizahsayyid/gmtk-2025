@@ -5,61 +5,26 @@ using UnityEngine.SceneManagement;
 public class PlayerSceneExit : MonoBehaviour
 {
     public PlayerSpawnDirection spawnDirection;
-    private Vector3 leftEdge;
-    private Vector3 rightEdge;
-    private Vector3 topEdge;
-    private Vector3 bottomEdge;
-
     private Scene currentScene;
+    private SceneConfig sceneConfig = new SceneConfig();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
-        Camera camera = Camera.main;
-        leftEdge = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
-        rightEdge = camera.ViewportToWorldPoint(new Vector3(1, 0, camera.nearClipPlane));
-        topEdge = camera.ViewportToWorldPoint(new Vector3(0, 1, camera.nearClipPlane));
-        bottomEdge = camera.ViewportToWorldPoint(new Vector3(0, 0, camera.nearClipPlane));
         currentScene = SceneManager.GetActiveScene();
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-        string direction = IsTouchingEdge();
-        if (direction != null)
+        if (collision.CompareTag(Tags.SceneLeftExit) || collision.CompareTag(Tags.SceneRightExit))
         {
-            SceneConfig sceneConfig = new SceneConfig();
+            string direction = collision.CompareTag(Tags.SceneLeftExit) ? SceneDirections.Left : SceneDirections.Right;
             string nextSceneName = sceneConfig.GetNextScene(currentScene.name, direction);
-            if (nextSceneName != null)
+
+            if (!string.IsNullOrEmpty(nextSceneName))
             {
                 spawnDirection.SetSpawnDirection(direction);
                 SceneManager.LoadScene(nextSceneName);
             }
         }
-    }
-
-    string IsTouchingEdge()
-    {
-        Vector3 position = transform.position;
-
-        if (position.x <= leftEdge.x)
-        {
-            return SceneDirections.Left;
-        }
-        else if (position.x >= rightEdge.x)
-        {
-            return SceneDirections.Right;
-        }
-        else if (position.y >= topEdge.y)
-        {
-            return SceneDirections.Up;
-        }
-        else if (position.y <= bottomEdge.y)
-        {
-            return SceneDirections.Down;
-        }
-        
-        return null;
     }
 }
