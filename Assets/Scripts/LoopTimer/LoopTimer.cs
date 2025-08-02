@@ -8,6 +8,7 @@ public class LoopTimer : ScriptableObject
     private float timeRemaining = 0f;
     public bool isRunning = false;
     public event Action OnTimerStopped;
+    public event Action OnTimerStarted;
     public event Action<int> onTimerTick;
     public bool isFirstCycleComplete = false;
 
@@ -16,8 +17,10 @@ public class LoopTimer : ScriptableObject
 
     public void StartTimer()
     {
+        isFirstCycleComplete = false; // Reset the first cycle flag
         timeRemaining = duration;
         isRunning = true;
+        OnTimerStarted?.Invoke();
         if (debug)
         {
             Debug.Log("LoopTimer started");
@@ -27,7 +30,6 @@ public class LoopTimer : ScriptableObject
     public void StopTimer()
     {
         isRunning = false;
-        isFirstCycleComplete = false; // Reset the first cycle flag
         OnTimerStopped?.Invoke();
         if (debug)
         {
