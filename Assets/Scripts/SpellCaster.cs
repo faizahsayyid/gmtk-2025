@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 public class SpellCaster : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class SpellCaster : MonoBehaviour
     private int currentSpellIndex = 0;
     
     private SpellData currentSpell;
+    
+    // Events for UI updates
+    public event Action<SpellData> OnSpellSelected;
     private Animator animator;
     private bool isCasting = false;
     
@@ -35,9 +39,11 @@ public class SpellCaster : MonoBehaviour
         {
             currentSpellIndex = index;
             currentSpell = spells[index].spellData;
+            OnSpellSelected?.Invoke(currentSpell);
             Debug.Log($"Selected spell: {currentSpell.spellName}");
         }
     }
+
     
     private void SelectSpellByName(string spellName)
     {
