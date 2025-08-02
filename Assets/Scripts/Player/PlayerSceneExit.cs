@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSceneExit : MonoBehaviour
 {
+    public PlayerSpawnDirection spawnDirection;
     private Vector3 leftEdge;
     private Vector3 rightEdge;
     private Vector3 topEdge;
@@ -32,6 +33,7 @@ public class PlayerSceneExit : MonoBehaviour
             string nextSceneName = sceneConfig.GetNextScene(currentScene.name, direction);
             if (nextSceneName != null)
             {
+                spawnDirection.SetSpawnDirection(direction);
                 SceneManager.LoadScene(nextSceneName);
             }
         }

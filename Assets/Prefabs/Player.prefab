@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ee0df6d950a544e886c99e63d871139, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  screenEdgeOffset: 0.1
   loopTimer: {fileID: 11400000, guid: b8bd7f9e5f23c4db69185600590e3432, type: 2}
   looperRecording: {fileID: 11400000, guid: b608518ab29ef40c3bd77ddf4dd9eb71, type: 2}
 --- !u!1 &6775260792203284109
@@ -356,3 +357,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6cb0b3d8c274889bc2b338573112e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnDirection: {fileID: 11400000, guid: baf1230c9e2cf4673833065a48b2efe8, type: 2}
