@@ -26,7 +26,6 @@ public class PlayMovement : MonoBehaviour
     public Animator animator;
 
     [Header("Shooting Settings")]
-    public GameObject bulletPrefab;
     public Transform firePoint;
     public float fireRate = 0.5f;
     public float castDelay = 0.2f;
@@ -38,17 +37,21 @@ public class PlayMovement : MonoBehaviour
     private float nextFireTime;
 
     private PlayerInputActions inputActions;
+    private SpellCaster spellCaster;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spellCaster = GetComponent<SpellCaster>();
         inputActions = new PlayerInputActions();
 
         inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
         inputActions.Player.Jump.performed += ctx => jumpBufferCounter = jumpBufferTime;
-        inputActions.Player.Attack.performed += ctx => Shoot();
+        inputActions.Player.Attack.performed += ctx => CastSpell();
+        inputActions.Player.Previous.performed += ctx => SelectAttackSpell();
+        inputActions.Player.Next.performed += ctx => SelectStunSpell();
     }
 
     private void OnEnable() => inputActions.Enable();
@@ -127,27 +130,27 @@ public class PlayMovement : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position, groundCheckBoxSize, 0f, groundLayer);
     }
 
-    private void Shoot()
+    private void CastSpell()
     {
-        if (Time.time >= nextFireTime && bulletPrefab != null && firePoint != null)
+        if (spellCaster != null)
         {
-            nextFireTime = Time.time + fireRate;
-            
-            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
-            
-            StartCoroutine(FireBulletAfterDelay());
+            spellCaster.CastCurrentSpell();
         }
     }
-
-    private IEnumerator FireBulletAfterDelay()
+    
+    private void SelectAttackSpell()
     {
-        yield return new WaitForSeconds(castDelay);
-
-        SpawnManager.InstantiateAndNotify(
-            bulletPrefab,
-            firePoint.position,
-            firePoint.rotation,
-            transform.localScale.x <= 0
-        );
+        if (spellCaster != null)
+        {
+            spellCaster.SelectAttackSpell();
+        }
+    }
+    
+    private void SelectStunSpell()
+    {
+        if (spellCaster != null)
+        {
+            spellCaster.SelectStunSpell();
+        }
     }
 }
