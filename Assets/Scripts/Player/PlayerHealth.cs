@@ -13,6 +13,7 @@ public class PlayerHealth : ScriptableObject
 
     public void ResetHealth()
     {
+        canTakeDamage = true;
         healthPoints = maxHealthPoints;
     }
 
@@ -42,5 +43,10 @@ public class PlayerHealth : ScriptableObject
     public void DisableDamage()
     {
         canTakeDamage = false;
+    }
+
+    public float GetHealthPercentage()
+    {
+        return healthPoints / maxHealthPoints;
     }
 }
