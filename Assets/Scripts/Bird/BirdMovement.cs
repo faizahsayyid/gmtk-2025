@@ -20,8 +20,8 @@ public class BirdMovement : MonoBehaviour
     public GameObject attackPrefab;
 
     [Header("Health Settings")]
-    public int maxHealth = 3;
-    public int currentHealth;
+    public float maxHealth = 3f;
+    public float currentHealth;
 
     // Private Variables
     private SpriteRenderer spriteRenderer;
@@ -33,13 +33,18 @@ public class BirdMovement : MonoBehaviour
     void Start()
     {
         currentHealth = maxHealth;
-        player = GameObject.FindWithTag("Player").transform;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        player = GameObject.FindWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (player == null) return;
+        if (player == null)
+        {
+            player = GameObject.FindWithTag("Player").transform;
+            return;
+        } 
+            
 
         // Check Player Distance
         Vector3 direction = player.position - transform.position;
@@ -101,10 +106,10 @@ public class BirdMovement : MonoBehaviour
 
 
     // Public Methods and Helpers
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth -= damage;
-        if (currentHealth <= 0)
+        if (currentHealth <= 0f)
         {
             Die();
         }
@@ -121,22 +126,61 @@ public class BirdMovement : MonoBehaviour
         yield return new WaitForSeconds(1.5f); // Adjust 
         Destroy(gameObject);
     }
-    public void Stun()
+    public void Stun(StunBullet stunBullet)
     {
         if (currentState != BirdStates.Dead)
         {
             currentState = BirdStates.Stunned;
             animator.SetBool("Stunned", true);
 
-            StartCoroutine(StunCooldown());
+            StartCoroutine(StunCooldown(stunBullet.stunDuration));
         }
     }
-    private IEnumerator StunCooldown()
+    private IEnumerator StunCooldown(float duration)
     {
-        yield return new WaitForSeconds(2f); // Adjust
+        yield return new WaitForSeconds(duration);
 
-        currentState = BirdStates.Idle; 
+        currentState = BirdStates.Idle;
         animator.SetBool("Stunned", false);
+    }
+
+    // Collison Logic
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(Tags.Bullet))
+        {
+            Debug.Log("Bird collided with: Bullet");
+            TriggerOnCollision('B', collision);
+        }
+        if (collision.gameObject.CompareTag(Tags.StunBullet))
+        {
+            Debug.Log("Bird collided with: Stun");
+            TriggerOnCollision('S', collision);
+        }
+    
+    }
+
+    void TriggerOnCollision(char type, Collider2D collision)
+    {
+        if (type == 'B')
+        {
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                TakeDamage(bullet.damage);
+                return;
+            }
+        }
+        if (type == 'S')
+        {
+            StunBullet stunBullet = collision.gameObject.GetComponent<StunBullet>();
+            if (stunBullet != null)
+            {
+                Stun(stunBullet);
+                return;
+            }
+        }
     }
 
 }
