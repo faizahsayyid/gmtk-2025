@@ -15,8 +15,8 @@ MonoBehaviour:
   maxSlots: 10
   spellSlots:
   - spellData: {fileID: 11400000, guid: c2746c758e789468f962ddfb41982db7, type: 2}
-    quantity: 10
-    lastUsedTime: 31.4849
+    quantity: 9
+    lastUsedTime: 33.569874
   - spellData: {fileID: 11400000, guid: 50dd3c0d1a2614361a72c54de8343481, type: 2}
-    quantity: 7
-    lastUsedTime: 4.855653
+    quantity: 18
+    lastUsedTime: 4.2866406

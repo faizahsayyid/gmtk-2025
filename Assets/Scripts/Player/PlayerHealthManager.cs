@@ -1,9 +1,13 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PlayerHealthManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
+    public PlayMovement playerMovement;
+    public SpriteRenderer playerSpriteRenderer;
+    public Color stunColor = new Color(255, 234, 119, 255); // Yellow color for stun effect
     void OnEnable()
     {
         playerHealth.OnPlayerDeath += HandlePlayerDeath;
@@ -45,6 +49,25 @@ public class PlayerHealthManager : MonoBehaviour
                 return;
             }
         }
+        if (collision.gameObject.CompareTag(Tags.StunBullet))
+        {
+            StunBullet stunBullet = collision.gameObject.GetComponent<StunBullet>();
+            if (stunBullet != null)
+            {
+                playerHealth.TakeDamage(stunBullet.damage);
+                StartCoroutine(HandlePlayerStun(stunBullet.stunDuration));
+                return;
+            }
+        }
+    }
+
+    IEnumerator HandlePlayerStun(float stunDuration)
+    {
+        playerMovement.enabled = false;
+        playerSpriteRenderer.color = stunColor; // Change color to indicate stun
+        yield return new WaitForSeconds(stunDuration); // Stun duration
+        playerMovement.enabled = true;
+        playerSpriteRenderer.color = Color.white; // Reset color after stun
     }
 
     void HandlePlayerDeath()

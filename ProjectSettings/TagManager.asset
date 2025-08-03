@@ -10,6 +10,7 @@ TagManager:
   - BirdBullet
   - Bullet
   - Ground
+  - StunBullet
   layers:
   - Default
   - TransparentFX

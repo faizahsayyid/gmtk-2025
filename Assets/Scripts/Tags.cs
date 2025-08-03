@@ -6,5 +6,6 @@ sealed public class Tags
     public const string Bird = "Bird";
     public const string BirdBullet = "BirdBullet";
     public const string Bullet = "Bullet";
+    public const string StunBullet = "StunBullet";
     public const string Ground = "Ground";
 }
