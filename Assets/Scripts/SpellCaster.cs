@@ -113,7 +113,7 @@ public class SpellCaster : MonoBehaviour
 
     private void FireSpellProjectile()
     {
-            GameObject projectile = SpawnManager.InstantiateAndNotify(
+            SpawnManager.InstantiateAndNotify(
                 currentSpell.spellPrefab,
                 firePoint.position,
                 firePoint.rotation,
