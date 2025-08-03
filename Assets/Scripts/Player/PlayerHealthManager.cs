@@ -26,7 +26,7 @@ public class PlayerHealthManager : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision detected: " + collision.gameObject.name);
+        Debug.Log("PlayerHealthManager Collision detected: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag(Tags.Bullet))
         {
             Debug.Log("Bullet hit the player");
@@ -40,9 +40,11 @@ public class PlayerHealthManager : MonoBehaviour
         }
         if (collision.gameObject.CompareTag(Tags.BirdBullet))
         {
+            Debug.Log("BirdBullet hit the player");
             BirdBullet birdBullet = collision.gameObject.GetComponent<BirdBullet>();
             if (birdBullet != null)
             {
+                Debug.Log("BirdBullet script found, applying damage");
                 playerHealth.TakeDamage(birdBullet.damage);
                 return;
             }

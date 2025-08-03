@@ -28,8 +28,9 @@ public class BirdBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag(Tags.Bird) || col.CompareTag(Tags.Player) || col.CompareTag(Tags.Ground))
+        if (col.CompareTag(Tags.Player) || col.CompareTag(Tags.Ground))
         {
+            Debug.Log("BirdBullet Collision detected: " + col.gameObject.name);
             Destroy(gameObject);
         }
     }

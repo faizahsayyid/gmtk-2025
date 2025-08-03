@@ -33,5 +33,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
         playerHealth.ResetHealth();
         spellInventory.ResetSpellInventory();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        blackScreenImage.color = new Color(0, 0, 0, 0);
     }
 }
