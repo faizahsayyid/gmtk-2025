@@ -2,8 +2,8 @@ using System.Collections.Generic;
 
 public sealed class SceneNames
 {
-    public const string Scene1 = "FaizahScene";
-    public const string Scene2 = "FaizahScene2";
+    public const string Tutorial = "Tutorial";
+    public const string Scene1 = "Scene1";
 }
 
 public sealed class SceneDirections
@@ -26,13 +26,13 @@ class NextScene
 public class SceneConfig
 {
     private Dictionary<string, NextScene> scenes = new Dictionary<string, NextScene>();
-    private NextScene scene1 = new NextScene(right: SceneNames.Scene2);
-    private NextScene scene2 = new NextScene(left: SceneNames.Scene1);
+    private NextScene scene1 = new NextScene(right: SceneNames.Scene1);
+    private NextScene scene2 = new NextScene(left: SceneNames.Tutorial);
 
     public SceneConfig()
     {
-        scenes.Add(SceneNames.Scene1, scene1);
-        scenes.Add(SceneNames.Scene2, scene2);
+        scenes.Add(SceneNames.Tutorial, scene1);
+        scenes.Add(SceneNames.Scene1, scene2);
     }
 
     public string GetNextScene(string sceneName, string direction)

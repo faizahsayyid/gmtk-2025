@@ -1,0 +1,780 @@
+fileFormatVersion: 2
+guid: abf2e649948a74bd8baf00af2dc1b710
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8992369014934075079
+    second: GMTK (2)_0
+  - first:
+      213: 1407877435037735335
+    second: GMTK (2)_1
+  - first:
+      213: 1503303762977919108
+    second: GMTK (2)_2
+  - first:
+      213: -159149417591279336
+    second: GMTK (2)_3
+  - first:
+      213: -1128794794879831867
+    second: GMTK (2)_4
+  - first:
+      213: 1645012580935308199
+    second: GMTK (2)_5
+  - first:
+      213: 6999869539435783017
+    second: GMTK (2)_6
+  - first:
+      213: -664648171652834251
+    second: GMTK (2)_7
+  - first:
+      213: -8454187942258595686
+    second: GMTK (2)_8
+  - first:
+      213: 2544934190525875399
+    second: GMTK (2)_9
+  - first:
+      213: -6094903240785378074
+    second: GMTK (2)_10
+  - first:
+      213: -3342364214780598533
+    second: GMTK (2)_11
+  - first:
+      213: 7417001458199416659
+    second: GMTK (2)_12
+  - first:
+      213: -30897389040787783
+    second: GMTK (2)_13
+  - first:
+      213: 8395745687426310046
+    second: GMTK (2)_14
+  - first:
+      213: -2971460904963377861
+    second: GMTK (2)_15
+  - first:
+      213: 8221030500150922252
+    second: GMTK (2)_16
+  - first:
+      213: -6599010634114871583
+    second: GMTK (2)_17
+  - first:
+      213: -673624450195308484
+    second: GMTK (2)_18
+  - first:
+      213: -5579669722525326907
+    second: GMTK (2)_19
+  - first:
+      213: -334836233677117942
+    second: GMTK (2)_20
+  - first:
+      213: 1510016774937725267
+    second: GMTK (2)_21
+  - first:
+      213: -5054962357975728365
+    second: GMTK (2)_22
+  - first:
+      213: -2129669926525978375
+    second: GMTK (2)_23
+  - first:
+      213: 1460430752519032430
+    second: GMTK (2)_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: GMTK (2)_0
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 63
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c6ff58b9ff4bcc70800000000000000
+      internalID: 8992369014934075079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 63
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a956b26119c98310800000000000000
+      internalID: 1407877435037735335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 63
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4809ecdbececcd410800000000000000
+      internalID: 1503303762977919108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_3
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 63
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811f24aa2769acdf0800000000000000
+      internalID: -159149417591279336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_4
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 62
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c0b0ea5d17b550f0800000000000000
+      internalID: -1128794794879831867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_5
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 72
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a392b90a3244d610800000000000000
+      internalID: 1645012580935308199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_6
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 63
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 963a52c5248842160800000000000000
+      internalID: 6999869539435783017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_7
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 72
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c15046202b6c6f0800000000000000
+      internalID: -664648171652834251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_8
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 59
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a982945dbd0bcaa80800000000000000
+      internalID: -8454187942258595686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_9
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 62
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c48a03a92c615320800000000000000
+      internalID: 2544934190525875399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_10
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 40
+        width: 31
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e44c907bcd8a6ba0800000000000000
+      internalID: -6094903240785378074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_11
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 40
+        width: 26
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf6660c84798d91d0800000000000000
+      internalID: -3342364214780598533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_12
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 40
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35fc78e778b7ee660800000000000000
+      internalID: 7417001458199416659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_13
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 41
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9be9cb50dfa329ff0800000000000000
+      internalID: -30897389040787783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_14
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 40
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9f109b583ea38470800000000000000
+      internalID: 8395745687426310046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_15
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 37
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3572b7ec0043c6d0800000000000000
+      internalID: -2971460904963377861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_16
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 40
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0cc529dea7f61270800000000000000
+      internalID: 8221030500150922252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_17
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 41
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eece849aca9b64a0800000000000000
+      internalID: -6599010634114871583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_18
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 40
+        width: 12
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c30471ea12ec6a6f0800000000000000
+      internalID: -673624450195308484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_19
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 18
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c120e023f70192b0800000000000000
+      internalID: -5579669722525326907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_20
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 18
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06eeb1383c6a5bf0800000000000000
+      internalID: -334836233677117942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_21
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 18
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3594b03a148a4f410800000000000000
+      internalID: 1510016774937725267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_22
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 18
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31fb2eb848a29d9b0800000000000000
+      internalID: -5054962357975728365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_23
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 18
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f8369c3c74e172e0800000000000000
+      internalID: -2129669926525978375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GMTK (2)_24
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 18
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e04fe180e744410800000000000000
+      internalID: 1460430752519032430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      GMTK (2)_0: 8992369014934075079
+      GMTK (2)_1: 1407877435037735335
+      GMTK (2)_10: -6094903240785378074
+      GMTK (2)_11: -3342364214780598533
+      GMTK (2)_12: 7417001458199416659
+      GMTK (2)_13: -30897389040787783
+      GMTK (2)_14: 8395745687426310046
+      GMTK (2)_15: -2971460904963377861
+      GMTK (2)_16: 8221030500150922252
+      GMTK (2)_17: -6599010634114871583
+      GMTK (2)_18: -673624450195308484
+      GMTK (2)_19: -5579669722525326907
+      GMTK (2)_2: 1503303762977919108
+      GMTK (2)_20: -334836233677117942
+      GMTK (2)_21: 1510016774937725267
+      GMTK (2)_22: -5054962357975728365
+      GMTK (2)_23: -2129669926525978375
+      GMTK (2)_24: 1460430752519032430
+      GMTK (2)_3: -159149417591279336
+      GMTK (2)_4: -1128794794879831867
+      GMTK (2)_5: 1645012580935308199
+      GMTK (2)_6: 6999869539435783017
+      GMTK (2)_7: -664648171652834251
+      GMTK (2)_8: -8454187942258595686
+      GMTK (2)_9: 2544934190525875399
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
