@@ -28,7 +28,8 @@ public class BirdBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "TempPlatform") {
+        if (col.CompareTag(Tags.Bird) || col.CompareTag(Tags.Player) || col.CompareTag(Tags.Ground))
+        {
             Destroy(gameObject);
         }
     }

@@ -3,6 +3,7 @@ using UnityEngine;
 public class GameLoad : MonoBehaviour
 {
     public PlayerSpawnDirection playerSpawnDirection;
+    public PlayerHealth playerHealth;
     private static GameLoad Instance;
 
     void Awake()
@@ -12,6 +13,7 @@ public class GameLoad : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             playerSpawnDirection.SetSpawnDirection(SceneDirections.Right);
+            playerHealth.ResetHealth();
         }
     }
 }

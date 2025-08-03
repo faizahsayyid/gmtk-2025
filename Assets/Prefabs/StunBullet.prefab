@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1234567890123456792}
   - component: {fileID: 1234567890123456793}
   - component: {fileID: 1234567890123456794}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: StunBullet
-  m_TagString: Untagged
+  m_TagString: StunBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   lifetime: 3
-  damage: 5
+  damage: 0
   stunDuration: 2
 --- !u!212 &1234567890123456792
 SpriteRenderer:
