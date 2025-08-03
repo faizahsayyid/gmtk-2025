@@ -8,7 +8,7 @@ public class SpellSlot
     public SpellData spellData;
     public int quantity;
     public float lastUsedTime;
-    
+
     public SpellSlot(SpellData spell, int qty = 1)
     {
         spellData = spell;
@@ -21,7 +21,7 @@ public class SpellSlot
         // return quantity > 0 && Time.time >= lastUsedTime + spellData.cooldown;
         return quantity > 0;
     }
-    
+
     public void UseSpell()
     {
         if (CanCast())
@@ -29,6 +29,11 @@ public class SpellSlot
             quantity--;
             lastUsedTime = Time.time;
         }
+    }
+    
+    public void AddSpell(int qty)
+    {
+        quantity += qty;
     }
 }
 
@@ -71,6 +76,18 @@ public class SpellInventory : ScriptableObject
         }
         
         return false;
+    }
+    public void IncreaseSpellQuantity(int index, int amount)
+    {
+        SpellSlot slot = index == 0 ? spellSlots.Find(s => s.spellData.spellName == "Attack") : spellSlots.Find(s => s.spellData.spellName == "Stun");
+
+        Debug.Log(slot.spellData.spellName);
+
+        if (slot != null)
+        {
+            slot.AddSpell(amount);
+        }
+       
     }
     
     public int GetSpellQuantity(SpellData spell)

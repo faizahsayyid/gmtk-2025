@@ -17,7 +17,7 @@ MonoBehaviour:
   icon: {fileID: 2208703988740019828, guid: e199df9eda5254a87bcebec89b80c1de, type: 3}
   damage: 5
   manaCost: 20
-  cooldown: 0.5
+  cooldown: 0
   castTime: 0.2
   spellPrefab: {fileID: 1234567890123456790, guid: c3d4e5f6789012345678901234abcdef, type: 3}
   castSound: {fileID: 0}
