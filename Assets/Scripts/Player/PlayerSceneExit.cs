@@ -15,7 +15,6 @@ public class PlayerSceneExit : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log($"PlayerSceneExit: OnTriggerEnter2D with {collision.gameObject.name}");
         if (collision.CompareTag(Tags.SceneLeftExit) || collision.CompareTag(Tags.SceneRightExit))
         {
             string direction = collision.CompareTag(Tags.SceneLeftExit) ? SceneDirections.Left : SceneDirections.Right;
