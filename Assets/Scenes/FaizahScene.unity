@@ -547,10 +547,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 927465548576425381, guid: a91540638b29748e8b38cfa930c9272c, type: 3}
-      propertyPath: playerHealth
-      value: 
-      objectReference: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
     - target: {fileID: 1482266669577050420, guid: a91540638b29748e8b38cfa930c9272c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.85
@@ -594,10 +590,6 @@ PrefabInstance:
     - target: {fileID: 3153404335123366279, guid: a91540638b29748e8b38cfa930c9272c, type: 3}
       propertyPath: m_Name
       value: GameLoader
-      objectReference: {fileID: 0}
-    - target: {fileID: 3153404335123366279, guid: a91540638b29748e8b38cfa930c9272c, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

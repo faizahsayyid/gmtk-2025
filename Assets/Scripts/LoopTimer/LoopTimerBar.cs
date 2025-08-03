@@ -4,7 +4,7 @@ public class LoopTimerBar : MonoBehaviour
 {
 
     public RectTransform bar;
-    public GameObject barUI;
+    public GameObject text;
     public LoopTimer loopTimer;
 
     private float originalWidth;
@@ -12,7 +12,7 @@ public class LoopTimerBar : MonoBehaviour
     private void Awake()
     {
         originalWidth = bar.sizeDelta.x;
-        bar.sizeDelta = new Vector2(0, bar.sizeDelta.y);
+        HandleHideBar();
     }
 
     private void OnEnable()
@@ -30,12 +30,14 @@ public class LoopTimerBar : MonoBehaviour
     private void HandleHideBar()
     {
         bar.sizeDelta = new Vector2(0, bar.sizeDelta.y);
+        text.SetActive(false);
     }
 
     private void UpdateBar(int seconds)
     {
         if (loopTimer.isRunning)
         {
+            text.SetActive(true);
             float percentage = (float)seconds / loopTimer.duration;
             bar.sizeDelta = new Vector2(originalWidth * percentage, bar.sizeDelta.y);
         }

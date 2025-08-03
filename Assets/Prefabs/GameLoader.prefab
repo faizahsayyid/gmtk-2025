@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpawnDirection: {fileID: 11400000, guid: baf1230c9e2cf4673833065a48b2efe8, type: 2}
   playerHealth: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
+  spellInventory: {fileID: 11400000, guid: 0dcba7c081d484e3394020a1c5982915, type: 2}

@@ -8,12 +8,14 @@ public class SpellSlot
     public SpellData spellData;
     public int quantity;
     public float lastUsedTime;
+    public int initialQuantity;
 
-    public SpellSlot(SpellData spell, int qty = 1)
+    public SpellSlot(SpellData spell, int qty = 1, int initialQty = 1)
     {
         spellData = spell;
         quantity = qty;
         lastUsedTime = 0f;
+        initialQuantity = initialQty;
     }
 
     public bool CanCast()
@@ -51,6 +53,17 @@ public class SpellInventory : ScriptableObject
     public List<SpellSlot> GetAllSpells()
     {
         return new List<SpellSlot>(spellSlots);
+    }
+
+    public void ResetSpellInventory()
+    {
+        // Reset all spell slots to their initial quantities
+        Debug.Log("Resetting Spell Inventory");
+        for (int i = 0; i < spellSlots.Count; i++)
+        {
+            spellSlots[i].quantity = spellSlots[i].initialQuantity;
+            spellSlots[i].lastUsedTime = 0f;
+        }
     }
     
     public bool HasSpell(SpellData spell)
