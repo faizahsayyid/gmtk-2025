@@ -8,12 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/HelloWorldScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FaizahScene.unity
     guid: 8de7c3e3af86f4f1e9ac4fc4dcbb1db7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/FaizahScene2.unity
     guid: 81f3d81cccc9f4277972122347d5e13d
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 92868dd41f99c4c69bd0a317aaf6a34b
+  - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 4868b35a25d754d50b69e341d85430f4
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
