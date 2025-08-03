@@ -4,6 +4,7 @@ public class GameLoad : MonoBehaviour
 {
     public PlayerSpawnDirection playerSpawnDirection;
     public PlayerHealth playerHealth;
+    public SpellInventory spellInventory;
     private static GameLoad Instance;
 
     void Awake()
@@ -14,6 +15,7 @@ public class GameLoad : MonoBehaviour
             DontDestroyOnLoad(gameObject);
             playerSpawnDirection.SetSpawnDirection(SceneDirections.Right);
             playerHealth.ResetHealth();
+            spellInventory.ResetSpellInventory();
         }
     }
 }
