@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BirdBullet : MonoBehaviour
 {
     [Header("Bullet Settings")]
     public float speed = 10f;
-    public float lifetime = 3f;
+    public float lifetime = 5f;
     public float damage = 1f;
 
     private Rigidbody2D rb;
-    // private Vector2 direction;
+    private Vector2 direction;
 
     private void Awake()
     {
@@ -18,7 +18,11 @@ public class Bullet : MonoBehaviour
     private void Start()
     {
         Destroy(gameObject, lifetime);
-        Vector2 direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+    }
+
+    public void Initialize(Vector2 shootDirection)
+    {
+        direction = shootDirection.normalized;
         rb.linearVelocity = direction * speed;
     }
 

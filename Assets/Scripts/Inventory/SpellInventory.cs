@@ -18,7 +18,8 @@ public class SpellSlot
 
     public bool CanCast()
     {
-        return quantity > 0 && Time.time >= lastUsedTime + spellData.cooldown;
+        // return quantity > 0 && Time.time >= lastUsedTime + spellData.cooldown;
+        return quantity > 0;
     }
 
     public void UseSpell()
