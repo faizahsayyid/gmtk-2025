@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 626522446136065264}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.817, y: 0.171, z: 0}
+  m_LocalPosition: {x: 1.54, y: 0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 945072594019431285}
   - component: {fileID: 8377616774319853815}
   - component: {fileID: 817056158983371023}
+  - component: {fileID: 287788499630050581}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -371,3 +372,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
+--- !u!114 &287788499630050581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6775260792203284109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5f6789012345678901234abcdef0123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellInventory: {fileID: 11400000, guid: 0dcba7c081d484e3394020a1c5982915, type: 2}
+  firePoint: {fileID: 5534468047339901475}
+  castDelay: 0.2

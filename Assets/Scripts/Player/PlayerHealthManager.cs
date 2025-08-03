@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthManager : MonoBehaviour
 {
@@ -13,16 +14,41 @@ public class PlayerHealthManager : MonoBehaviour
         playerHealth.OnPlayerDeath -= HandlePlayerDeath;
     }
 
-    void OnCollisionEnter2D(Collider2D col)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        if (col.CompareTag(Tags.Enemy))
+        if (collision.gameObject.CompareTag(Tags.Bird))
         {
             playerHealth.TakeDamage(1);
         }
     }
-    
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("Collision detected: " + collision.gameObject.name);
+        if (collision.gameObject.CompareTag(Tags.Bullet))
+        {
+            Debug.Log("Bullet hit the player");
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            if (bullet != null)
+            {
+                Debug.Log("Bullet script found, applying damage");
+                playerHealth.TakeDamage(bullet.damage);
+                return;
+            }
+        }
+        if (collision.gameObject.CompareTag(Tags.BirdBullet))
+        {
+            BirdBullet birdBullet = collision.gameObject.GetComponent<BirdBullet>();
+            if (birdBullet != null)
+            {
+                playerHealth.TakeDamage(birdBullet.damage);
+                return;
+            }
+        }
+    }
+
     void HandlePlayerDeath()
     {
-        Debug.Log("Player has died.");
+        playerHealth.ShowBlackScreen();        
     }
 }

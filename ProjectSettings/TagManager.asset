@@ -6,7 +6,10 @@ TagManager:
   tags:
   - SceneLeftExit
   - SceneRightExit
-  - Enemy
+  - Bird
+  - BirdBullet
+  - Bullet
+  - Ground
   layers:
   - Default
   - TransparentFX

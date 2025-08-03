@@ -5,15 +5,16 @@ using System;
 public class PlayerHealth : ScriptableObject
 {
     public Action OnPlayerDeath;
-    public int maxHealthPoints = 5;
-    private int healthPoints;
+    public Action OnShowBlackScreen;
+    public float maxHealthPoints = 5f;
+    private float healthPoints;
 
     public void ResetHealth()
     {
         healthPoints = maxHealthPoints;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         healthPoints -= damage;
         if (healthPoints <= 0)
@@ -21,5 +22,12 @@ public class PlayerHealth : ScriptableObject
             healthPoints = 0;
             OnPlayerDeath?.Invoke();
         }
+        Debug.Log($"Player Health: {healthPoints}/{maxHealthPoints}");
+    }
+
+    public void ShowBlackScreen()
+    {
+        Debug.Log("ShowBlackScreen");
+        OnShowBlackScreen?.Invoke();
     }
 }
