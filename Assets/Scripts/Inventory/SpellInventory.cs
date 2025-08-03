@@ -78,8 +78,10 @@ public class SpellInventory : ScriptableObject
     }
     public void IncreaseSpellQuantity(int index, int amount)
     {
-        SpellSlot slot = spellSlots[index];
-        
+        SpellSlot slot = index == 0 ? spellSlots.Find(s => s.spellData.spellName == "Attack") : spellSlots.Find(s => s.spellData.spellName == "Stun");
+
+        Debug.Log(slot.spellData.spellName);
+
         if (slot != null)
         {
             slot.AddSpell(amount);
