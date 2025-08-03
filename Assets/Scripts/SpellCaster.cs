@@ -14,6 +14,8 @@ public class SpellCaster : MonoBehaviour
     [Header("Defense Settings")]
     public Color defenseColor = Color.blue; // Defense color
     public PlayerHealth playerHealth;
+    public LooperRecording looperRecording;
+    public LoopTimer loopTimer;
 
     private SpellData currentSpell;
 
@@ -119,6 +121,11 @@ public class SpellCaster : MonoBehaviour
                 EnableDefenseSpell();
                 yield return new WaitForSeconds(currentSpell.castTime);
                 DisableDefenseSpell();
+                if (!loopTimer.isRunning)
+                {
+                    loopTimer.StartTimer();
+                }
+                looperRecording.RecordDefense(loopTimer.GetCurrentTimeSeconds(), currentSpell.castTime);
             }
             else
             {

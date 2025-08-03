@@ -125,6 +125,9 @@ MonoBehaviour:
   screenEdgeOffset: 0.1
   loopTimer: {fileID: 11400000, guid: b8bd7f9e5f23c4db69185600590e3432, type: 2}
   looperRecording: {fileID: 11400000, guid: b608518ab29ef40c3bd77ddf4dd9eb71, type: 2}
+  playerHealth: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
+  defenseColor: {r: 0.29803923, g: 0.99607843, b: 0.99607843, a: 1}
+  playerSpriteRenderer: {fileID: 8338765252896901837}
 --- !u!1 &6775260792203284109
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,5 +391,7 @@ MonoBehaviour:
   spellInventory: {fileID: 11400000, guid: 0dcba7c081d484e3394020a1c5982915, type: 2}
   firePoint: {fileID: 5534468047339901475}
   castDelay: 0.2
-  defenseColor: {r: 0, g: 0, b: 1, a: 1}
+  defenseColor: {r: 0.29803923, g: 0.99607843, b: 0.99607843, a: 0.78431374}
   playerHealth: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
+  looperRecording: {fileID: 11400000, guid: b608518ab29ef40c3bd77ddf4dd9eb71, type: 2}
+  loopTimer: {fileID: 11400000, guid: b8bd7f9e5f23c4db69185600590e3432, type: 2}
