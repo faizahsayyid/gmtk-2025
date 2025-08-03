@@ -52,6 +52,7 @@ public class PlayMovement : MonoBehaviour
         inputActions.Player.Attack.performed += ctx => CastSpell();
         inputActions.Player.Previous.performed += ctx => SelectAttackSpell();
         inputActions.Player.Next.performed += ctx => SelectStunSpell();
+        inputActions.Player.Defense.performed += ctx => SelectDefenseSpell();
     }
 
     private void OnEnable() => inputActions.Enable();
@@ -80,7 +81,7 @@ public class PlayMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f);
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Jump);          
+            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Jump);
             jumpBufferCounter = 0f;
             coyoteTimeCounter = 0f;
         }
@@ -137,7 +138,7 @@ public class PlayMovement : MonoBehaviour
             spellCaster.CastCurrentSpell();
         }
     }
-    
+
     private void SelectAttackSpell()
     {
         if (spellCaster != null)
@@ -145,12 +146,20 @@ public class PlayMovement : MonoBehaviour
             spellCaster.SelectAttackSpell();
         }
     }
-    
+
     private void SelectStunSpell()
     {
         if (spellCaster != null)
         {
             spellCaster.SelectStunSpell();
+        }
+    }
+    
+    private void SelectDefenseSpell()
+    {
+        if (spellCaster != null)
+        {
+            spellCaster.SelectDefenseSpell();
         }
     }
 }

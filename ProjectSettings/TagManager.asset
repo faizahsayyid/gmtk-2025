@@ -6,6 +6,11 @@ TagManager:
   tags:
   - SceneLeftExit
   - SceneRightExit
+  - Bird
+  - BirdBullet
+  - Bullet
+  - Ground
+  - StunBullet
   layers:
   - Default
   - TransparentFX
