@@ -112,8 +112,14 @@ public class BirdMovement : MonoBehaviour
     private void Die()
     {
         currentState = BirdStates.Dead;
-        // TODO: 
-        // Handle death (e.g., play animation, disable components)
+        animator.SetTrigger("Die");
+
+        StartCoroutine(HandleDeath());
+    }
+    private IEnumerator HandleDeath()
+    {
+        yield return new WaitForSeconds(1.5f); // Adjust 
+        Destroy(gameObject);
     }
     public void Stun()
     {
@@ -121,7 +127,16 @@ public class BirdMovement : MonoBehaviour
         {
             currentState = BirdStates.Stunned;
             animator.SetBool("Stunned", true);
+
+            StartCoroutine(StunCooldown());
         }
+    }
+    private IEnumerator StunCooldown()
+    {
+        yield return new WaitForSeconds(2f); // Adjust
+
+        currentState = BirdStates.Idle; 
+        animator.SetBool("Stunned", false);
     }
 
 }
