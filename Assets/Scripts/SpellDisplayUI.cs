@@ -4,11 +4,10 @@ using TMPro;
 public class SpellDisplayUI : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshPro spellNameText;
-    public TextMeshPro spellQuantityText;
+    public TextMeshProUGUI spellNameText;
+    public TextMeshProUGUI spellQuantityText;
     
     [Header("Spell System")]
-    public SpellCaster spellCaster;
     public SpellInventory spellInventory;
     
     [Header("Display Settings")]
@@ -16,28 +15,49 @@ public class SpellDisplayUI : MonoBehaviour
     public string quantityFormat = "{0}";
     
     private SpellData currentDisplayedSpell;
-    
+    private SpellCaster spellCaster;
+
     private void Start()
     {
+        SetSpellCaster();
+
+        // Initial update
+        UpdateDisplay();
+    }
+
+    private void SetSpellCaster()
+    {
+        // Find Player
+        GameObject player = GameObject.FindWithTag(Tags.Player);
+        if (player != null)
+        {
+            Debug.Log("Player found for SpellDisplayUI.");
+            spellCaster = player.GetComponent<SpellCaster>();
+        }
+        
         // Subscribe to events
         if (spellInventory != null)
         {
             spellInventory.OnSpellUsed += OnSpellUsed;
         }
-        
+
         if (spellCaster != null)
         {
+            var spells = spellInventory.GetAllSpells();
+            currentDisplayedSpell = spells[0].spellData;
             spellCaster.OnSpellSelected += OnSpellSelected;
         }
-        
-        // Initial update
-        UpdateDisplay();
     }
     
     private void Update()
     {
+        if (spellCaster == null)
+        {
+            SetSpellCaster();
+        }
         // Update quantity display regularly (in case it changed)
         UpdateQuantityDisplay();
+        UpdateSpellNameDisplay();
     }
     
     private void UpdateDisplay()
