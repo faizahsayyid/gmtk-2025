@@ -66,15 +66,11 @@ public class BirdMovement : MonoBehaviour
     
     private void EnemyShoot()
     {
-        Debug.Log("1)" + (Time.time >= nextFireTime));
-        Debug.Log("2)" + (attackPrefab != null));
-        Debug.Log("3)" + (firePoint != null));
         if (Time.time >= nextFireTime && attackPrefab != null && firePoint != null)
         {
-            Debug.Log("Shooting");
             nextFireTime = Time.time + fireRate;
 
-            animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
+            //animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
 
             StartCoroutine(FireBulletAfterDelayEnemy());
         }
@@ -89,7 +85,7 @@ public class BirdMovement : MonoBehaviour
 
     GameObject bullet = Instantiate(attackPrefab, firePoint.position, Quaternion.Euler(0, 0, angle));
 
-    Bullet bulletScript = bullet.GetComponent<Bullet>();
+    BirdBullet bulletScript = bullet.GetComponent<BirdBullet>();
     if (bulletScript != null)
     {
         bulletScript.Initialize(shootDirection);

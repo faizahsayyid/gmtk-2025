@@ -131,7 +131,6 @@ public class PlayMovement : MonoBehaviour
     {
         if (Time.time >= nextFireTime && bulletPrefab != null && firePoint != null)
         {
-            Debug.Log("Shooting");
             nextFireTime = Time.time + fireRate;
 
             animator.SetInteger(PlayerAnimationConstants.Accessor, PlayerAnimationConstants.Cast);
@@ -142,7 +141,6 @@ public class PlayMovement : MonoBehaviour
 
     private IEnumerator FireBulletAfterDelay()
     {
-        Debug.Log("Firing bullet after delay");
         yield return new WaitForSeconds(castDelay);
 
         SpawnManager.InstantiateAndNotify(

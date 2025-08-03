@@ -161,7 +161,7 @@ MonoBehaviour:
   moveSpeed: 3
   stopDistance: 5
   attackRange: 10
-  fireRate: 0.5
+  fireRate: 1.5
   castDelay: 0.2
   firePoint: {fileID: 309671618894129374}
   attackPrefab: {fileID: 5457617476228225320, guid: 6321794b7105048aa831939b3d6fabee, type: 3}
