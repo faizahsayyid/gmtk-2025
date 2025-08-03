@@ -7,6 +7,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public PlayerHealth playerHealth;
+    public SpellInventory spellInventory;
     public Image blackScreenImage;
 
     public float blackScreenDelay = 1f;
@@ -30,6 +31,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         blackScreenImage.color = new Color(0, 0, 0, 1); // Set black screen to fully opaque
         yield return new WaitForSeconds(blackScreenDelay);
         playerHealth.ResetHealth();
+        spellInventory.ResetSpellInventory();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

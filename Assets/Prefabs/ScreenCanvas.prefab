@@ -89,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
+  spellInventory: {fileID: 11400000, guid: 0dcba7c081d484e3394020a1c5982915, type: 2}
   blackScreenImage: {fileID: 9080178083923571954}
   blackScreenDelay: 1
 --- !u!1 &7665759237263686516
