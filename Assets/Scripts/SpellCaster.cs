@@ -11,6 +11,9 @@ public class SpellCaster : MonoBehaviour
 
     [Header("Current Spell")]
     private int currentSpellIndex = 0;
+    [Header("Defense Settings")]
+    public Color defenseColor = Color.blue; // Defense color
+    public PlayerHealth playerHealth;
 
     private SpellData currentSpell;
 
@@ -68,6 +71,11 @@ public class SpellCaster : MonoBehaviour
         SelectSpellByName("Stun");
     }
 
+    public void SelectDefenseSpell()
+    {
+        SelectSpellByName("Defense");
+    }
+
     private bool CanCastCurrentSpell()
     {
         return currentSpell != null &&
@@ -104,20 +112,42 @@ public class SpellCaster : MonoBehaviour
         // Cast the spell
         if (spellInventory.CastSpell(currentSpell))
         {
-            FireSpellProjectile();
             Debug.Log($"Cast {currentSpell.spellName}!");
+
+            if (currentSpell.spellName.Equals("Defense"))
+            {
+                EnableDefenseSpell();
+                yield return new WaitForSeconds(currentSpell.castTime);
+                DisableDefenseSpell();
+            }
+            else
+            {
+                FireSpellProjectile();
+            }
         }
 
         isCasting = false;
     }
 
+    private void EnableDefenseSpell()
+    { 
+        playerHealth.DisableDamage(); // Disable damage while defense is active
+        gameObject.GetComponent<SpriteRenderer>().color = defenseColor; // Change color to indicate defense
+    }
+
+    private void DisableDefenseSpell()
+    { 
+        playerHealth.EnableDamage(); // Re-enable damage after defense
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white; // Reset color after stun
+    }
+
     private void FireSpellProjectile()
     {
-            GameObject projectile = SpawnManager.InstantiateAndNotify(
-                currentSpell.spellPrefab,
-                firePoint.position,
-                firePoint.rotation,
-                transform.localScale.x <= 0
-            );
+        GameObject projectile = SpawnManager.InstantiateAndNotify(
+            currentSpell.spellPrefab,
+            firePoint.position,
+            firePoint.rotation,
+            transform.localScale.x <= 0
+        );
     }
 }

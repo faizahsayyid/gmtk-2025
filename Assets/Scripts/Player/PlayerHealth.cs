@@ -9,6 +9,8 @@ public class PlayerHealth : ScriptableObject
     public float maxHealthPoints = 5f;
     private float healthPoints;
 
+    private bool canTakeDamage = true;
+
     public void ResetHealth()
     {
         healthPoints = maxHealthPoints;
@@ -16,6 +18,7 @@ public class PlayerHealth : ScriptableObject
 
     public void TakeDamage(float damage)
     {
+        if (!canTakeDamage) return;
         healthPoints -= damage;
         if (healthPoints <= 0)
         {
@@ -29,5 +32,15 @@ public class PlayerHealth : ScriptableObject
     {
         Debug.Log("ShowBlackScreen");
         OnShowBlackScreen?.Invoke();
+    }
+
+    public void EnableDamage()
+    {
+        canTakeDamage = true;
+    }
+
+    public void DisableDamage()
+    {
+        canTakeDamage = false;
     }
 }

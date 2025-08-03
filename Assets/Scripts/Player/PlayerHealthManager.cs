@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 public class PlayerHealthManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;
-    public PlayMovement playerMovement;
-    public SpriteRenderer playerSpriteRenderer;
     public Color stunColor = new Color(255, 234, 119, 255); // Yellow color for stun effect
     void OnEnable()
     {
@@ -63,11 +61,11 @@ public class PlayerHealthManager : MonoBehaviour
 
     IEnumerator HandlePlayerStun(float stunDuration)
     {
-        playerMovement.enabled = false;
-        playerSpriteRenderer.color = stunColor; // Change color to indicate stun
+        gameObject.GetComponent<PlayMovement>().enabled = false;
+        gameObject.GetComponent<SpriteRenderer>().color = stunColor; // Change color to indicate stun
         yield return new WaitForSeconds(stunDuration); // Stun duration
-        playerMovement.enabled = true;
-        playerSpriteRenderer.color = Color.white; // Reset color after stun
+        gameObject.GetComponent<PlayMovement>().enabled = true;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white; // Reset color after stun
     }
 
     void HandlePlayerDeath()

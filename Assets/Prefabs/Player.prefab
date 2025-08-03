@@ -372,9 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
-  playerMovement: {fileID: 1787455916359332690}
-  playerSpriteRenderer: {fileID: 8338765252896901837}
-  stunColor: {r: 1, g: 0.9544648, b: 0.6933962, a: 255}
+  stunColor: {r: 1, g: 0.9137255, b: 0.44705883, a: 0.18431373}
 --- !u!114 &287788499630050581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,3 +388,5 @@ MonoBehaviour:
   spellInventory: {fileID: 11400000, guid: 0dcba7c081d484e3394020a1c5982915, type: 2}
   firePoint: {fileID: 5534468047339901475}
   castDelay: 0.2
+  defenseColor: {r: 0, g: 0, b: 1, a: 1}
+  playerHealth: {fileID: 11400000, guid: 931161263eeab409cafcd69ff2a5dc32, type: 2}
